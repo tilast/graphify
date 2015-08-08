@@ -11,6 +11,8 @@ release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
+web/node_modules
+web/dist
 
 
 ### JetBrains template
