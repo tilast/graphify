@@ -43,6 +43,13 @@ Drawer.prototype.draw = function(nodes, links) {
 
   this.vis.selectAll('*').remove();
 
+  links = links.map(function(link) {
+    return {
+      source: nodes[link.source],
+      target: nodes[link.target]
+    };
+  });
+
   this.vis.selectAll(".line")
     .data(links)
     .enter()
