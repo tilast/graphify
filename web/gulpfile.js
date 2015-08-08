@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var browserify = require('gulp-browserify');
 var connect = require('gulp-connect');
+var babelify = require('babelify');
 
 /**
  * Run test once and exit
@@ -16,7 +17,8 @@ gulp.task('scripts', function() {
     // Single entry point to browserify
     gulp.src('src/main.js')
         .pipe(browserify({
-          insertGlobals : true
+          insertGlobals : true,
+          transform: [babelify]
         }))
         .pipe(gulp.dest('./dist/'))
 });
