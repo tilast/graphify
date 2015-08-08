@@ -1,5 +1,4 @@
-var d3 = require('d3'),
-    vis = require('vis');
+var vis = require('vis');
 
 function Drawer() {
 }
