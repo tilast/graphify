@@ -1,22 +1,11 @@
-var Drawer = require('./drawer');
+var Drawer = require('./drawer'),
+    superagent = require('superagent');
 
-var drawer = new Drawer(),
-    json =
-{
- nodes: [
-    {id: 1, label: 'Node 1'},
-    {id: 2, label: 'Node 2'},
-    {id: 3, label: 'Node 3'},
-    {id: 4, label: 'Node 4'},
-    {id: 5, label: 'Node 5'}
- ],
- links: [
-    {from: 1, to: 3},
-    {from: 1, to: 2},
-    {from: 2, to: 4},
-    {from: 2, to: 5}
- ]
-};
+var drawer = new Drawer();
 
-//drawer.draw(json.nodes, json.links);
-drawer.draw(json.nodes, json.links);
+superagent
+.get('http://192.168.1.105:4567/graph')
+.end(function(err, res) {
+   var result = JSON.parse(res.text);
+   drawer.draw(result.nodes, result.links);
+});

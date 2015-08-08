@@ -15,7 +15,7 @@ gulp.task('serve', function () {
 
 gulp.task('scripts', function() {
     // Single entry point to browserify
-    gulp.src('src/main.js')
+    gulp.src('./src/main.js')
         .pipe(browserify({
           insertGlobals : true,
           transform: [babelify]
@@ -24,7 +24,7 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('watch', function() {
-  return gulp.watch('src/**/*.js', ['scripts']);
+  return gulp.watch('./src/**/*.js', ['scripts']);
 });
 
 gulp.task('default', ['serve', 'watch']);
