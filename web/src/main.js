@@ -3,34 +3,20 @@ var Drawer = require('./drawer');
 var drawer = new Drawer(),
     json =
 {
- "nodes": [
-   {
-     "x": 100,
-     "y": 100,
-     "name": "1"
-   },
-   {
-     "x": 200,
-     "y": 200,
-     "name": "2"
-   },
-   {
-     "x": 100,
-     "y": 200,
-     "name": "3"
-   },
-   {
-      "x": 200,
-      "y": 100,
-      "name": "4"
-   }
+ nodes: [
+    {id: 1, label: 'Node 1'},
+    {id: 2, label: 'Node 2'},
+    {id: 3, label: 'Node 3'},
+    {id: 4, label: 'Node 4'},
+    {id: 5, label: 'Node 5'}
  ],
- "links": [
-   { "source": 0, "target": 1 },
-   { "source": 0, "target": 3 },
-   { "source": 2, "target": 3 },
-   { "source": 2, "target": 1 }
+ links: [
+    {from: 1, to: 3},
+    {from: 1, to: 2},
+    {from: 2, to: 4},
+    {from: 2, to: 5}
  ]
 };
 
+//drawer.draw(json.nodes, json.links);
 drawer.draw(json.nodes, json.links);
